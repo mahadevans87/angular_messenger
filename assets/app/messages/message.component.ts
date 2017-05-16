@@ -20,12 +20,11 @@ import { MessageService } from "./message.service";
 })
 export class MessageComponent {
   @Input() message: Message;
-  @Output() editClicked = new EventEmitter<string>();
 
   constructor(private messageService: MessageService) {}
   
   onEdit() {
-    this.editClicked.emit("Hello there!");
+    this.messageService.editMessage(this.message);
   }
 
   onDelete() {
